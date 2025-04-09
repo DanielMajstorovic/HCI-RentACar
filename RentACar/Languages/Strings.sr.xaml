@@ -1,0 +1,266 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="SettingsTab">Podešavanja</system:String>
+    <system:String x:Key="OptionsTab">Opcije</system:String>
+    <system:String x:Key="VehiclesTab">Vozila</system:String>
+    <system:String x:Key="RentalsTab">Iznajmljivanja</system:String>
+    <system:String x:Key="ProblemsTab">Problemi</system:String>
+    <system:String x:Key="AgentsTab">Agenti</system:String>
+    <system:String x:Key="MenuText">Meni</system:String>
+    <system:String x:Key="Welcome">Dobrodošli</system:String>
+    <system:String x:Key="LoginToAccount">Prijavite se na svoj nalog</system:String>
+    <system:String x:Key="Username">Korisničko ime</system:String>
+    <system:String x:Key="Password">Lozinka</system:String>
+    <system:String x:Key="Login">Prijava</system:String>
+    <system:String x:Key="PremiumCars">Premium automobili za svaku priliku</system:String>
+    <system:String x:Key="RentLuxury">Iznajmite luksuzna vozila po najboljim cijenama</system:String>
+    <system:String x:Key="SearchAgents">Pretraži agente...</system:String>
+    <system:String x:Key="AddAgent">Dodaj agenta</system:String>
+    <system:String x:Key="EditAgent">Izmijeni agenta</system:String>
+    <system:String x:Key="Email">E-pošta</system:String>
+    <system:String x:Key="Location">Lokacija</system:String>
+    <system:String x:Key="Salary">Plata</system:String>
+    <system:String x:Key="Action">Akcija</system:String>
+    <system:String x:Key="Edit">Izmijeni</system:String>
+    <system:String x:Key="Delete">Obriši</system:String>
+    <system:String x:Key="Save">Sačuvaj</system:String>
+    <system:String x:Key="Cancel">Otkaži</system:String>
+    <system:String x:Key="Ok">U redu</system:String>
+    <system:String x:Key="PhoneNumber">Broj telefona</system:String>
+    <system:String x:Key="PhoneNumbers">Brojevi telefona</system:String>
+    <system:String x:Key="AgentDetails">Detalji agenta</system:String>
+    <system:String x:Key="ConfirmDelete">Potvrdi brisanje</system:String>
+    <system:String x:Key="DeleteAgentConfirmation">Da li ste sigurni da želite da obrišete agenta '{0}'?</system:String>
+    <system:String x:Key="Success">Uspjeh</system:String>
+    <system:String x:Key="Error">Greška</system:String>
+    <system:String x:Key="AgentAdded">Agent je uspješno dodat.</system:String>
+    <system:String x:Key="AgentUpdated">Podaci o agentu su uspješno ažurirani.</system:String>
+    <system:String x:Key="AgentDeleted">Agent je uspješno obrisan.</system:String>
+    <system:String x:Key="ErrorLoadingData">Greška pri učitavanju podataka</system:String>
+    <system:String x:Key="UsernameRequired">Korisničko ime je obavezno.</system:String>
+    <system:String x:Key="PasswordRequired">Lozinka je obavezna.</system:String>
+    <system:String x:Key="InvalidEmail">Unesite ispravnu e-mail adresu.</system:String>
+    <system:String x:Key="LocationRequired">Lokacija je obavezna.</system:String>
+    <system:String x:Key="InvalidSalary">Unesite validan iznos plate.</system:String>
+    <system:String x:Key="UsernameExists">Korisničko ime već postoji.</system:String>
+    <system:String x:Key="EmailExists">E-mail adresa već postoji.</system:String>
+    <system:String x:Key="PhoneNumberRequired">Broj telefona je obavezan.</system:String>
+    <system:String x:Key="InvalidPhoneNumber">Unesite validan broj telefona.</system:String>
+    <system:String x:Key="PhoneNumberAlreadyExists">Ovaj broj telefona već postoji na listi.</system:String>
+    <system:String x:Key="LoginError">Greška pri prijavljivanju</system:String>
+    <system:String x:Key="PleaseEnterCredentials">Molimo unesite korisničko ime i lozinku.</system:String>
+    <system:String x:Key="InvalidCredentials">Pogrešno korisničko ime ili lozinka.</system:String>
+    <system:String x:Key="UnsupportedAccountType">Nepodržan tip naloga.</system:String>
+    <system:String x:Key="LoginFailure">Prijava nije uspjela</system:String>
+    <system:String x:Key="AgentLogin">Prijava agenta</system:String>
+    <system:String x:Key="WelcomeAgent">Dobrodošli</system:String>
+    <system:String x:Key="NoAgentsFound">Nema pronađenih agenata</system:String>
+    <system:String x:Key="AgentManagement">Upravljanje agentima</system:String>
+    <system:String x:Key="NoAvailableData">Nema dostupnih podataka</system:String>
+    <system:String x:Key="LogoutConfirmation">Potvrda odjave</system:String>
+    <system:String x:Key="LogoutConfirmationMessage">Da li ste sigurni da želite da se odjavite?</system:String>
+
+    <system:String x:Key="OptionsManagement">Upravljanje Opcijama</system:String>
+    <system:String x:Key="Name">Naziv</system:String>
+    <system:String x:Key="Description">Opis</system:String>
+    <system:String x:Key="Price">Cijena</system:String>
+    <system:String x:Key="SearchOptions">Pretraži Opcije</system:String>
+    <system:String x:Key="AddOption">Dodaj Opciju</system:String>
+    <system:String x:Key="OptionAdded">Opcija uspješno dodana</system:String>
+    <system:String x:Key="OptionUpdated">Opcija uspješno ažurirana</system:String>
+    <system:String x:Key="OptionDeleted">Opcija uspješno obrisana</system:String>
+    <system:String x:Key="DeleteOptionConfirmation">Da li ste sigurni da želite obrisati opciju '{0}'?</system:String>
+
+    <system:String x:Key="OptionDetails">Detalji opcije</system:String>
+    <system:String x:Key="EditOption">Izmijeni opciju</system:String>
+    <system:String x:Key="NameRequired">Naziv opcije je obavezan.</system:String>
+    <system:String x:Key="InvalidPrice">Nevažeća cijena. Molimo unesite važeću cijenu između 0 i 999,99.</system:String>
+    <system:String x:Key="OptionNameExists">Opcija sa ovim nazivom već postoji.</system:String>
+
+
+    <system:String x:Key="AccountSettings">Podešavanja naloga</system:String>
+    <system:String x:Key="ChangePassword">Promjena lozinke</system:String>
+    <system:String x:Key="OldPassword">Trenutna lozinka</system:String>
+    <system:String x:Key="NewPassword">Nova lozinka</system:String>
+    <system:String x:Key="ConfirmNewPassword">Potvrdi novu lozinku</system:String>
+    <system:String x:Key="IncorrectCurrentPassword">Trenutna lozinka je netačna.</system:String>
+    <system:String x:Key="PasswordCannotBeEmpty">Lozinka ne može biti prazna.</system:String>
+    <system:String x:Key="PasswordsDoNotMatch">Nove lozinke se ne poklapaju.</system:String>
+    <system:String x:Key="PasswordChangedSuccessfully">Lozinka je uspješno promijenjena.</system:String>
+
+    <system:String x:Key="AccountInformation">Informacije o nalogu</system:String>
+
+    <system:String x:Key="UserInfoUpdatedSuccessfully">Korisnički podaci su uspješno ažurirani</system:String>
+
+    <system:String x:Key="VehicleManagement">Upravljanje vozilima</system:String>
+    <system:String x:Key="AddVehicle">Dodaj vozilo</system:String>
+    <system:String x:Key="EditVehicle">Izmijeni vozilo</system:String>
+    <system:String x:Key="VehicleDetails">Detalji vozila</system:String>
+    <system:String x:Key="Category">Kategorija</system:String>
+    <system:String x:Key="Brand">Marka</system:String>
+    <system:String x:Key="Model">Model</system:String>
+    <system:String x:Key="Year">Godište</system:String>
+    <system:String x:Key="Power">Snaga</system:String>
+    <system:String x:Key="DailyRate">Dnevna tarifa</system:String>
+    <system:String x:Key="WeeklyRate">Sedmična tarifa</system:String>
+    <system:String x:Key="Image">Slika</system:String>
+    <system:String x:Key="Browse">Pretraži</system:String>
+    <system:String x:Key="SearchVehicles">Pretraži vozila</system:String>
+    <system:String x:Key="AllCategories">Sve kategorije</system:String>
+    <system:String x:Key="YearAndPower">Godište i snaga</system:String>
+    <system:String x:Key="Prices">Cijene</system:String>
+    <system:String x:Key="NoAvailableVehicles">Nema dostupnih vozila</system:String>
+    <system:String x:Key="PreviousPage">Prethodna strana</system:String>
+    <system:String x:Key="NextPage">Sljedeća strana</system:String>
+    <system:String x:Key="VehicleAdded">Vozilo je uspješno dodato</system:String>
+    <system:String x:Key="VehicleUpdated">Vozilo je uspješno ažurirano</system:String>
+    <system:String x:Key="VehicleDeleted">Vozilo je uspješno obrisano</system:String>
+    <system:String x:Key="DeleteVehicleConfirmation">Da li ste sigurni da želite da obrišete vozilo {0}?</system:String>
+    <system:String x:Key="VehicleInUse">Vozilo ne može biti obrisano jer se trenutno koristi</system:String>
+    <system:String x:Key="SelectImage">Izaberite sliku</system:String>
+    <system:String x:Key="ValidationError">Greška validacije</system:String>
+    <system:String x:Key="CategoryRequired">Kategorija je obavezna</system:String>
+    <system:String x:Key="BrandRequired">Marka je obavezna</system:String>
+    <system:String x:Key="ModelRequired">Model je obavezan</system:String>
+    <system:String x:Key="YearInvalid">Godište mora biti između 1900 i trenutne godine</system:String>
+    <system:String x:Key="PowerInvalid">Snaga mora biti pozitivan broj</system:String>
+    <system:String x:Key="DailyRateInvalid">Nevažeća dnevna rata. Mora biti u rasponu od 0 do 999.99</system:String>
+    <system:String x:Key="WeeklyRateInvalid">Nevažeća sedmična rata. Mora biti u rasponu od 0 do 9999.99</system:String>
+
+
+    <system:String x:Key="ProblemsManagement">Upravljanje problemima</system:String>
+    <system:String x:Key="ProblemDetails">Detalji problema</system:String>
+    <system:String x:Key="ProcessProblem">Obrada problema</system:String>
+    <system:String x:Key="EditProblemFeedback">Izmjena povratne informacije</system:String>
+    <system:String x:Key="Agent">Agent</system:String>
+    <system:String x:Key="ProblemDescription">Opis problema</system:String>
+    <system:String x:Key="CreationDate">Datum kreiranja</system:String>
+    <system:String x:Key="ProcessingDate">Datum obrade</system:String>
+    <system:String x:Key="Feedback">Povratne informacije</system:String>
+    <system:String x:Key="Process">Obradi</system:String>
+    <system:String x:Key="View">Pregledaj</system:String>
+    <system:String x:Key="Close">Zatvori</system:String>
+    <system:String x:Key="AllProblems">Svi problemi</system:String>
+    <system:String x:Key="UnprocessedProblems">Neobrađeni problemi</system:String>
+    <system:String x:Key="ProcessedProblems">Obrađeni problemi</system:String>
+    <system:String x:Key="NoAvailableProblems">Nema dostupnih problema</system:String>
+    <system:String x:Key="SearchProblems">Pretraži probleme</system:String>
+    <system:String x:Key="FeedbackRequired">Povratne informacije su obavezne</system:String>
+    <system:String x:Key="ProblemProcessed">Problem je uspješno obrađen</system:String>
+
+
+
+    <system:String x:Key="MyProblems">Moji problemi</system:String>
+    <system:String x:Key="FilterBy">Filtriraj po:</system:String>
+    <system:String x:Key="AddProblem">Dodaj problem</system:String>
+    <system:String x:Key="Status">Status</system:String>
+    <system:String x:Key="Admin">Administrator</system:String>
+    <system:String x:Key="Unprocessed">Neobrađen</system:String>
+    <system:String x:Key="Processed">Obrađen</system:String>
+    <system:String x:Key="DeleteProblemConfirmation">Da li ste sigurni da želite da obrišete ovaj problem?</system:String>
+    <system:String x:Key="Confirmation">Potvrda</system:String>
+    <system:String x:Key="ProblemDeleted">Problem je uspješno obrisan</system:String>
+    <system:String x:Key="ProblemCreated">Problem je uspješno kreiran</system:String>
+    <system:String x:Key="ProblemDescriptionRequired">Opis problema je obavezan</system:String>
+
+    <system:String x:Key="ClientsTab">Klijenti</system:String>
+    <system:String x:Key="ClientManagement">Upravljanje klijentima</system:String>
+    <system:String x:Key="ClientDetails">Detalji klijenta</system:String>
+    <system:String x:Key="AddClient">Dodaj klijenta</system:String>
+    <system:String x:Key="EditClient">Izmijeni klijenta</system:String>
+    <system:String x:Key="FirstName">Ime</system:String>
+    <system:String x:Key="LastName">Prezime</system:String>
+    <system:String x:Key="SearchClients">Pretraži klijente</system:String>
+    <system:String x:Key="DeleteClientConfirmation">Da li ste sigurni da želite da obrišete klijenta {0}?</system:String>
+    <system:String x:Key="ClientAdded">Klijent je uspješno dodat</system:String>
+    <system:String x:Key="ClientUpdated">Klijent je uspješno ažuriran</system:String>
+    <system:String x:Key="ClientDeleted">Klijent je uspješno obrisan</system:String>
+    <system:String x:Key="ClientHasRentals">Klijent ima aktivna iznajmljivanja i ne može biti obrisan</system:String>
+    <system:String x:Key="FirstNameRequired">Ime je obavezno polje</system:String>
+    <system:String x:Key="LastNameRequired">Prezime je obavezno polje</system:String>
+
+    <system:String x:Key="VehicleRental">Iznajmljivanje vozila</system:String>
+    <system:String x:Key="RentVehicle">Iznajmi vozilo</system:String>
+    <system:String x:Key="ClearFilter">Obriši filter</system:String>
+    <system:String x:Key="VehicleRented">Vozilo je uspješno iznajmljeno</system:String>
+
+    <system:String x:Key="RentalDetails">Detalji iznajmljivanja</system:String>
+    <system:String x:Key="NewRental">Novo iznajmljivanje</system:String>
+    <system:String x:Key="SelectedDates">Izabrani datumi</system:String>
+    <system:String x:Key="StartDate">Datum početka</system:String>
+    <system:String x:Key="EndDate">Datum završetka</system:String>
+    <system:String x:Key="TotalDays">Ukupno dana</system:String>
+    <system:String x:Key="RentalRate">Stopa iznajmljivanja</system:String>
+    <system:String x:Key="Client">Klijent</system:String>
+    <system:String x:Key="AdditionalOptions">Dodatne opcije</system:String>
+    <system:String x:Key="AdditionalNotes">Dodatne napomene</system:String>
+    <system:String x:Key="TotalPrice">Ukupna cijena</system:String>
+    <system:String x:Key="Confirm">Potvrdi</system:String>
+
+    <system:String x:Key="ErrorLoadingClients">Greška pri učitavanju klijenata</system:String>
+    <system:String x:Key="ErrorLoadingOptions">Greška pri učitavanju opcija</system:String>
+    <system:String x:Key="SelectRentalDates">Molimo izaberite datume iznajmljivanja</system:String>
+    <system:String x:Key="SelectClient">Molimo izaberite klijenta</system:String>
+    <system:String x:Key="ErrorCreatingRental">Greška pri kreiranju iznajmljivanja</system:String>
+    <system:String x:Key="CannotSelectUnavailableDates">Nije moguće odabrati period koji uključuje zauzete datume. Molimo odaberite samo slobodne datume.</system:String>
+
+    <system:String x:Key="RentalsManagement">Upravljanje iznajmljivanjima</system:String>
+    <system:String x:Key="Customer">Klijent</system:String>
+    <system:String x:Key="Vehicle">Vozilo</system:String>
+    <system:String x:Key="RentalDate">Od</system:String>
+    <system:String x:Key="ReturnDate">Do</system:String>
+    <system:String x:Key="SearchRentals">Pretraži iznajmljivanja</system:String>
+    <system:String x:Key="AddRental">Dodaj iznajmljivanje</system:String>
+    <system:String x:Key="AllStatuses">Svi statusi</system:String>
+    <system:String x:Key="RentalAdded">Iznajmljivanje uspješno dodano</system:String>
+    <system:String x:Key="RentalUpdated">Iznajmljivanje uspješno ažurirano</system:String>
+    <system:String x:Key="RentalDeleted">Iznajmljivanje uspješno obrisano</system:String>
+    <system:String x:Key="DeleteRentalConfirmation">Da li ste sigurni da želite obrisati iznajmljivanje za {0} od {1}?</system:String>
+
+    <system:String x:Key="OptionsPrice">Ukupna cijena opcija</system:String>
+    <system:String x:Key="TotalRentPrice">Ukupna cijena</system:String>
+
+    <system:String x:Key="ChangeRentalStatus">Promjena statusa iznajmljivanja</system:String>
+    <system:String x:Key="NotReturned">Nije vraćeno</system:String>
+    <system:String x:Key="FromDate">od</system:String>
+    <system:String x:Key="ToDate">do</system:String>
+    <system:String x:Key="SelectStatus">Molimo odaberite status</system:String>
+    <system:String x:Key="ErrorSaving">Greška prilikom čuvanja</system:String>
+    <system:String x:Key="RentalStatusUpdated">Status iznajmljivanja je uspješno ažuriran</system:String>
+
+    <system:String x:Key="Back">Nazad</system:String>
+
+
+    <system:String x:Key="CreateReservation">Kreiraj rezervaciju</system:String>
+    <system:String x:Key="SelectDatesAndVehicle">Izaberi datume i vozilo</system:String>
+    <system:String x:Key="FindAvailableVehicles">Pronađi dostupna vozila</system:String>
+    <system:String x:Key="AvailableVehicles">Dostupna vozila</system:String>
+    <system:String x:Key="BackToDates">Nazad na datume</system:String>
+    <system:String x:Key="Make">Marka</system:String>
+    <system:String x:Key="SelectedVehicle">Izabrano vozilo</system:String>
+    <system:String x:Key="NewClient">Novi klijent</system:String>
+    <system:String x:Key="FullName">Puno ime</system:String>
+    <system:String x:Key="Phone">Telefon</system:String>
+    <system:String x:Key="ReservationSummary">Pregled rezervacije</system:String>
+    <system:String x:Key="BackToVehicles">Nazad na vozila</system:String>
+    <system:String x:Key="ErrorLoadingCategories">Greška pri učitavanju kategorija</system:String>
+    <system:String x:Key="ErrorLoadingVehicles">Greška pri učitavanju vozila</system:String>
+    <system:String x:Key="SelectVehicle">Izaberite vozilo</system:String>
+    <system:String x:Key="SelectClientAndOptions">Izaberite klijenta i opcije</system:String>
+    <system:String x:Key="Information">Informacija</system:String>
+    <system:String x:Key="ClientCreationNotImplemented">Kreiranje klijenta još nije implementirano</system:String>
+    <system:String x:Key="ErrorCreatingReservation">Greška pri kreiranju rezervacije</system:String>
+
+    <system:String x:Key="NoOptionsSelected">Nema selektovanih opcija za iznajmljivanje</system:String>
+    <system:String x:Key="NoClientSelected">Nije selektovan klijent</system:String>
+    <system:String x:Key="ShowPricing">Prikaži ponudu</system:String>
+    <system:String x:Key="SelectVehiclePlease">Molimo izaberite vozilo</system:String>
+    <system:String x:Key="PutInAdditionalNotes">Unesite dodatne napomene [Opcionalno]</system:String>
+
+    <system:String x:Key="RentalsManagementView">Pregled iznajmljivanja</system:String>
+
+    <system:String x:Key="PriceExceedsLimit">Ukupna cijena iznajmljivanja mora biti manja od 10.000! Promijenite iznajmljivanje tako da cijena bude ispod dozvoljenog limita.</system:String>
+
+
+</ResourceDictionary>

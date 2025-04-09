@@ -1,0 +1,773 @@
+﻿<UserControl x:Class="RentACar.View.ReservationMaker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=PresentationFramework"
+             Width="900"
+             Height="550"
+             IsVisibleChanged="UserControl_IsVisibleChanged"
+             Foreground="{DynamicResource TextPrimaryBrush}">
+    <UserControl.Resources>
+        <Style x:Key="StyledTextBox"
+               TargetType="TextBox">
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer Margin="0"
+                                          x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="ComboBoxToggleButton"
+                         TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border"
+                        Grid.ColumnSpan="2"
+                        CornerRadius="6"
+                        Background="White"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1" />
+                <Path x:Name="Arrow"
+                      Grid.Column="1"
+                      Fill="{DynamicResource TextSecondaryBrush}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Data="M0,0 L4,4 L8,0" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter TargetName="Border"
+                            Property="Opacity"
+                            Value="0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox"
+                         TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost"
+                    Focusable="False"
+                    Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}"
+               TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Padding"
+                    Value="8,0" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll"
+                    Value="true" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                                          Template="{StaticResource ComboBoxToggleButton}"
+                                          Focusable="false"
+                                          IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              Margin="8,0,30,0"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left" />
+                            <Popup Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Border x:Name="DropDownBorder"
+                                        Background="{DynamicResource BackgroundBrush}"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="6"
+                                        MinWidth="{TemplateBinding ActualWidth}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <ScrollViewer Margin="4"
+                                                  SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="{x:Type ComboBoxItem}"
+               TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="true" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted"
+                                     Value="true">
+                                <Setter TargetName="Border"
+                                        Property="Background"
+                                        Value="{DynamicResource SecondaryBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyledButton"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Opacity"
+                                        Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyledCheckBox"
+               TargetType="CheckBox">
+            <Setter Property="Margin"
+                    Value="0,5" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style x:Key="UnavailableDateStyle"
+               TargetType="{x:Type primitives:CalendarDayButton}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsBlackedOut, RelativeSource={RelativeSource Self}}"
+                             Value="True">
+                    <Setter Property="Background"
+                            Value="#FFDDDD" />
+                    <Setter Property="Foreground"
+                            Value="#666666" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ReservationCalendarStyle"
+               TargetType="Calendar">
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="CalendarDayButtonStyle"
+                    Value="{StaticResource UnavailableDateStyle}" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <!-- Step 1: Date Selection -->
+            <!-- Date Selection UI Changes -->
+            <Grid x:Name="DateSelectionGrid"
+                  Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Calendar x:Name="ReservationCalendar"
+                          Grid.Row="0"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,10"
+                          SelectionMode="MultipleRange"
+                          Style="{StaticResource ReservationCalendarStyle}"
+                          SelectedDatesChanged="ReservationCalendar_SelectedDatesChanged" />
+
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            Width="300">
+                    <TextBlock Text="{DynamicResource SelectedDates}"
+                               FontWeight="Bold"
+                               Margin="0,0,0,5"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+
+                    <TextBlock Text="{DynamicResource StartDate}"
+                               Margin="0,5,0,2"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+                    <TextBox x:Name="StartDateTextBox"
+                             IsReadOnly="True"
+                             Style="{StaticResource StyledTextBox}"
+                             Margin="0,0,0,5" />
+
+                    <TextBlock Text="{DynamicResource EndDate}"
+                               Margin="0,5,0,2"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+                    <TextBox x:Name="EndDateTextBox"
+                             IsReadOnly="True"
+                             Style="{StaticResource StyledTextBox}"
+                             Margin="0,0,0,5" />
+
+                    <TextBlock Text="{DynamicResource TotalDays}"
+                               Margin="0,5,0,2"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+                    <TextBox x:Name="TotalDaysTextBox"
+                             IsReadOnly="True"
+                             Style="{StaticResource StyledTextBox}"
+                             Margin="0,0,0,10" />
+
+                    <Button x:Name="FindVehiclesButton"
+                            Content="{DynamicResource FindAvailableVehicles}"
+                            Height="35"
+                            Width="200"
+                            Background="#007bff"
+                            Style="{StaticResource StyledButton}"
+                            Click="FindVehiclesButton_Click"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+
+            <!-- Step 2: Vehicle Selection -->
+            <Grid x:Name="VehicleSelectionGrid"
+                  Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0"
+                            Margin="0,0,0,15">
+                    <TextBlock Text="{DynamicResource AvailableVehicles}"
+                               FontWeight="Bold"
+                               Margin="0,0,0,10"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Search Box -->
+                        <Border Background="{DynamicResource TextSecondaryBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="10,0"
+                                Height="40"
+                                Width="300"
+                                HorizontalAlignment="Left">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="pack://application:,,,/Res/search.png"
+                                       Width="16"
+                                       Height="16"
+                                       Margin="5,0,10,0" />
+                                <TextBox x:Name="VehicleSearchTextBox"
+                                         Grid.Column="1"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         VerticalAlignment="Center"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
+                                         TextChanged="VehicleSearchTextBox_TextChanged"
+                                         ToolTip="{DynamicResource SearchVehicles}" />
+                            </Grid>
+                        </Border>
+
+                        <Button x:Name="BackToDateSelectionButton"
+                                Grid.Column="1"
+                                Width="170"
+                                Height="35"
+                                Background="{DynamicResource BackgroundBrush}"
+                                Style="{StaticResource StyledButton}"
+                                Click="BackToDateSelectionButton_Click">
+                            <TextBlock>
+                                <Run Text="« " />
+                                <Run Text="{DynamicResource BackToDates}" />
+                            </TextBlock>
+                        </Button>
+
+                    </Grid>
+                </StackPanel>
+
+                <Grid Grid.Row="1">
+                    <ListView x:Name="VehiclesListView"
+                              SelectionMode="Single"
+                              HorizontalAlignment="Center"
+                              SelectionChanged="VehiclesListView_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{DynamicResource Make}"
+                                                DisplayMemberBinding="{Binding Marka}"
+                                                Width="120" />
+                                <GridViewColumn Header="{DynamicResource Model}"
+                                                DisplayMemberBinding="{Binding Model}"
+                                                Width="120" />
+                                <GridViewColumn Header="{DynamicResource Year}"
+                                                DisplayMemberBinding="{Binding Godiste}"
+                                                Width="60" />
+                                <GridViewColumn Header="{DynamicResource Power}"
+                                                DisplayMemberBinding="{Binding Snaga}"
+                                                Width="80" />
+                                <GridViewColumn Header="{DynamicResource Category}"
+                                                DisplayMemberBinding="{Binding KategorijaVozilaIdKategorijaVozilaNavigation.Naziv}"
+                                                Width="120" />
+                                <GridViewColumn Header="{DynamicResource DailyRate}"
+                                                DisplayMemberBinding="{Binding DnevnaTarifa, StringFormat={}{0:C}}"
+                                                Width="120" />
+                                <GridViewColumn Header="{DynamicResource WeeklyRate}"
+                                                DisplayMemberBinding="{Binding SedmicnaTarifa, StringFormat={}{0:C}}"
+                                                Width="120" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <!-- No Data Message -->
+                    <TextBlock Text="{DynamicResource NoAvailableData}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="{DynamicResource TextPrimaryBrush}"
+                               Visibility="{Binding HasItems, ElementName=VehiclesListView, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
+                </Grid>
+                <Button x:Name="SelectVehicleButton"
+                        Grid.Row="2"
+                        Content="{DynamicResource SelectVehicle}"
+                        Height="35"
+                        Width="200"
+                        Background="#007bff"
+                        Style="{StaticResource StyledButton}"
+                        Click="SelectVehicleButton_Click"
+                        HorizontalAlignment="Center"
+                        Margin="0,15,0,0" />
+            </Grid>
+
+            <!-- Step 3: Client and Options Selection -->
+            <Grid x:Name="ClientOptionsGrid"
+                  Visibility="Collapsed">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+
+                        <TextBlock Text="{DynamicResource SelectClient}"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border Background="{DynamicResource TextSecondaryBrush}"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="8"
+                                    Padding="10,0"
+                                    Height="40"
+                                    Width="300"
+                                    HorizontalAlignment="Left">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="pack://application:,,,/Res/search.png"
+                                           Width="16"
+                                           Height="16"
+                                           Margin="5,0,10,0" />
+                                    <TextBox x:Name="ClientSearchTextBox"
+                                             Grid.Column="1"
+                                             Background="Transparent"
+                                             BorderThickness="0"
+                                             VerticalAlignment="Center"
+                                             Foreground="{DynamicResource TextPrimaryBrush}"
+                                             TextChanged="ClientSearchTextBox_TextChanged"
+                                             ToolTip="{DynamicResource SearchClients}" />
+                                </Grid>
+                            </Border>
+
+                            <Button x:Name="NewClientButton"
+                                    Grid.Column="1"
+                                    Width="170"
+                                    Height="35"
+                                    Margin="0,0,193,0"
+                                    Style="{StaticResource StyledButton}"
+                                    Click="NewClientButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="pack://application:,,,/Res/add_agent.png"
+                                           Width="20"
+                                           Height="20"
+                                           Margin="0,0,10,0" />
+                                    <TextBlock Text="{DynamicResource NewClient}" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="BackToVehicles"
+                                    Width="140"
+                                    Height="35"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Right"
+                                    Background="{DynamicResource BackgroundBrush}"
+                                    Style="{StaticResource StyledButton}"
+                                    Click="BackToVehiclesButton_Click">
+                                <TextBlock>
+                                    <Run Text="« " />
+                                    <Run Text="{DynamicResource Back}" />
+                                </TextBlock>
+                            </Button>
+
+                        </Grid>
+
+                        <Grid>
+                            <ListView x:Name="ClientsListView"
+                                      Height="145"
+                                      Margin="0,0,0,15"
+                                      SelectionMode="Single"
+                                      HorizontalAlignment="Left"
+                                      SelectionChanged="ClientsListView_SelectionChanged">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="{DynamicResource FullName}"
+                                                        DisplayMemberBinding="{Binding FullName}"
+                                                        Width="200" />
+                                        <GridViewColumn Header="{DynamicResource Phone}"
+                                                        DisplayMemberBinding="{Binding Telefon}"
+                                                        Width="120" />
+                                        <GridViewColumn Header="{DynamicResource Email}"
+                                                        DisplayMemberBinding="{Binding Email}"
+                                                        Width="180" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <!-- No Data Message -->
+                            <TextBlock Text="{DynamicResource NoAvailableData}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="180,0,0,0"
+                                       FontSize="16"
+                                       Foreground="{DynamicResource TextPrimaryBrush}"
+                                       Visibility="{Binding HasItems, ElementName=ClientsListView, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
+                        </Grid>
+
+                        <!-- Additional Options -->
+                        <TextBlock Text="{DynamicResource AdditionalOptions}"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      MaxHeight="200">
+                            <ItemsControl x:Name="OptionsItemsControl">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Grid.Column="0"
+                                                      IsChecked="{Binding IsSelected}"
+                                                      Style="{StaticResource StyledCheckBox}"
+                                                      Checked="Option_Checked"
+                                                      Unchecked="Option_Unchecked" />
+                                            <StackPanel Grid.Column="1"
+                                                        Margin="10,0,0,0">
+                                                <TextBlock Text="{Binding Naziv}"
+                                                           FontWeight="Bold" />
+                                                <TextBlock Text="{Binding Opis}"
+                                                           TextWrapping="Wrap" />
+                                            </StackPanel>
+                                            <TextBlock Grid.Column="2"
+                                                       Text="{Binding Cijena, StringFormat={}{0:C}}"
+                                                       VerticalAlignment="Center"
+                                                       Margin="10,0,0,0" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+                        <!-- Button to toggle pricing view -->
+                        <Button x:Name="TogglePricingButton"
+                                Content="{DynamicResource ShowPricing}"
+                                Height="35"
+                                Width="200"
+                                Margin="0,15,0,0"
+                                Background="#007bff"
+                                Style="{StaticResource StyledButton}"
+                                Click="TogglePricingButton_Click" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid x:Name="PricingGrid"
+                  Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Margin="0,0,0,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="BackToClientOptionsButton"
+                            Width="140"
+                            Height="35"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Background="{DynamicResource BackgroundBrush}"
+                            Style="{StaticResource StyledButton}"
+                            Click="BackToClientOptionsButton_Click">
+                        <TextBlock>
+                            <Run Text="« " />
+                            <Run Text="{DynamicResource Back}" />
+                        </TextBlock>
+                    </Button>
+
+                    <TextBlock Grid.Column="0"
+                               Text="{DynamicResource ReservationSummary}"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               Margin="15,0,0,0"
+                               Foreground="{DynamicResource TextSecondaryBrush}" />
+                </Grid>
+
+                <!-- Pricing Content -->
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="15,0">
+                        <TextBlock Text="{DynamicResource SelectedDates}"
+                                   Margin="0,5,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <TextBlock x:Name="SummaryDatesText"
+                                   Text=""
+                                   Margin="0,0,0,10"
+                                   TextWrapping="Wrap" />
+
+                        <TextBlock Text="{DynamicResource TotalDays}"
+                                   Margin="0,5,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <TextBox x:Name="SummaryTotalDaysTextBox"
+                                 IsReadOnly="True"
+                                 Style="{StaticResource StyledTextBox}"
+                                 Margin="0,0,0,10" />
+
+                        <TextBlock Text="{DynamicResource RentalRate}"
+                                   Margin="0,5,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <Grid Margin="0,0,0,15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="RateTypeComboBox"
+                                      Grid.Column="0"
+                                      SelectionChanged="RateTypeComboBox_SelectionChanged">
+                                <ComboBoxItem Content="{DynamicResource DailyRate}" />
+                                <ComboBoxItem Content="{DynamicResource WeeklyRate}" />
+                            </ComboBox>
+                            <TextBox x:Name="RateValueTextBox"
+                                     Grid.Column="1"
+                                     Width="100"
+                                     IsReadOnly="True"
+                                     Style="{StaticResource StyledTextBox}" />
+                        </Grid>
+
+                        <!-- Total Price -->
+                        <TextBlock Text="{DynamicResource TotalPrice}"
+                                   FontWeight="Bold"
+                                   Margin="0,15,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <Border Background="White"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Height="60"
+                                Margin="0,0,0,15">
+                            <TextBlock x:Name="TotalPriceTextBlock"
+                                       Text="$0.00"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center" />
+                        </Border>
+
+                        <!-- Selected Vehicle Summary -->
+                        <Border Background="{DynamicResource BackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,15">
+                            <StackPanel>
+                                <TextBlock Text="{DynamicResource SelectedVehicle}"
+                                           FontWeight="Bold"
+                                           Margin="0,0,0,5"
+                                           Foreground="{DynamicResource TextSecondaryBrush}" />
+                                <TextBlock x:Name="PricingSummaryVehicleText"
+                                           Text="" />
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Selected Client Summary -->
+                        <Border Background="{DynamicResource BackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,15">
+                            <StackPanel>
+                                <TextBlock Text="{DynamicResource Client}"
+                                           FontWeight="Bold"
+                                           Margin="0,0,0,5"
+                                           Foreground="{DynamicResource TextSecondaryBrush}" />
+                                <TextBlock x:Name="PricingSummaryClientText"
+                                           Text="" />
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Selected Options Summary -->
+                        <TextBlock Text="{DynamicResource OptionsTab}"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <Border Background="{DynamicResource BackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,15">
+                            <TextBlock x:Name="PricingSummaryOptionsText"
+                                       Text="{DynamicResource NoOptionsSelected}"
+                                       TextWrapping="Wrap" />
+                        </Border>
+                        <!-- Additional Notes -->
+                        <TextBlock Text="{DynamicResource PutInAdditionalNotes}"
+                                   Margin="0,15,0,5"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                        <TextBox x:Name="AdditionalNotesTextBox"
+                                 Height="50"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 MaxLength="512"
+                                 Style="{StaticResource StyledTextBox}" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- Finalize Buttons -->
+                <Button x:Name="FinalizeReservationButton"
+                        Grid.Row="2"
+                        Content="{DynamicResource CreateReservation}"
+                        Height="40"
+                        Width="200"
+                        Background="#007bff"
+                        Style="{StaticResource StyledButton}"
+                        Click="FinalizeReservationButton_Click"
+                        Margin="15,15,15,0"
+                        IsEnabled="False" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

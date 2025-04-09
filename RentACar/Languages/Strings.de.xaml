@@ -1,0 +1,267 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="SettingsTab">Einstellungen</system:String>
+    <system:String x:Key="OptionsTab">Optionen</system:String>
+    <system:String x:Key="VehiclesTab">Fahrzeuge</system:String>
+    <system:String x:Key="RentalsTab">Vermietungen</system:String>
+    <system:String x:Key="ProblemsTab">Probleme</system:String>
+    <system:String x:Key="AgentsTab">Agenten</system:String>
+    <system:String x:Key="MenuText">Menü</system:String>
+    <system:String x:Key="Welcome">Willkommen</system:String>
+	<system:String x:Key="LoginToAccount">Melden Sie sich bei Ihrem Konto an</system:String>
+	<system:String x:Key="Username">Benutzername</system:String>
+	<system:String x:Key="Password">Passwort</system:String>
+	<system:String x:Key="Login">Anmeldung</system:String>
+	<system:String x:Key="PremiumCars">Premium-Autos für jede Gelegenheit</system:String>
+	<system:String x:Key="RentLuxury">Mieten Sie Luxusfahrzeuge zu den besten Preisen</system:String>
+	<system:String x:Key="SearchAgents">Agenten suchen...</system:String>
+	<system:String x:Key="AddAgent">Agent hinzufügen</system:String>
+	<system:String x:Key="EditAgent">Agent bearbeiten</system:String>
+	<system:String x:Key="Email">E-Mail</system:String>
+	<system:String x:Key="Location">Standort</system:String>
+	<system:String x:Key="Salary">Gehalt</system:String>
+	<system:String x:Key="Action">Aktion</system:String>
+	<system:String x:Key="Edit">Bearbeiten</system:String>
+	<system:String x:Key="Delete">Löschen</system:String>
+	<system:String x:Key="Save">Speichern</system:String>
+	<system:String x:Key="Cancel">Abbrechen</system:String>
+	<system:String x:Key="Ok">OK</system:String>
+	<system:String x:Key="PhoneNumber">Telefonnummer</system:String>
+	<system:String x:Key="PhoneNumbers">Telefonnummern</system:String>
+	<system:String x:Key="AgentDetails">Agentendetails</system:String>
+	<system:String x:Key="ConfirmDelete">Löschen bestätigen</system:String>
+	<system:String x:Key="DeleteAgentConfirmation">Sind Sie sicher, dass Sie den Agenten '{0}' löschen möchten?</system:String>
+	<system:String x:Key="Success">Erfolg</system:String>
+	<system:String x:Key="Error">Fehler</system:String>
+	<system:String x:Key="AgentAdded">Agent wurde erfolgreich hinzugefügt.</system:String>
+	<system:String x:Key="AgentUpdated">Agent wurde erfolgreich aktualisiert.</system:String>
+	<system:String x:Key="AgentDeleted">Agent wurde erfolgreich gelöscht.</system:String>
+	<system:String x:Key="ErrorLoadingData">Fehler beim Laden der Daten</system:String>
+	<system:String x:Key="UsernameRequired">Benutzername ist erforderlich.</system:String>
+	<system:String x:Key="PasswordRequired">Passwort ist erforderlich.</system:String>
+	<system:String x:Key="InvalidEmail">Bitte geben Sie eine gültige E-Mail-Adresse ein.</system:String>
+	<system:String x:Key="LocationRequired">Standort ist erforderlich.</system:String>
+	<system:String x:Key="InvalidSalary">Bitte geben Sie einen gültigen Gehaltsbetrag ein.</system:String>
+	<system:String x:Key="UsernameExists">Benutzername existiert bereits.</system:String>
+	<system:String x:Key="EmailExists">E-Mail-Adresse existiert bereits.</system:String>
+	<system:String x:Key="PhoneNumberRequired">Telefonnummer ist erforderlich.</system:String>
+	<system:String x:Key="InvalidPhoneNumber">Bitte geben Sie eine gültige Telefonnummer ein.</system:String>
+	<system:String x:Key="PhoneNumberAlreadyExists">Diese Telefonnummer existiert bereits in der Liste.</system:String>
+    <system:String x:Key="LoginError">Anmeldefehler</system:String>
+    <system:String x:Key="PleaseEnterCredentials">Bitte geben Sie Benutzernamen und Passwort ein.</system:String>
+    <system:String x:Key="InvalidCredentials">Ungültiger Benutzername oder Passwort.</system:String>
+    <system:String x:Key="UnsupportedAccountType">Nicht unterstützter Kontotyp.</system:String>
+    <system:String x:Key="LoginFailure">Anmeldung fehlgeschlagen</system:String>
+    <system:String x:Key="AgentLogin">Agentenanmeldung</system:String>
+    <system:String x:Key="WelcomeAgent">Willkommen</system:String>
+    <system:String x:Key="NoAgentsFound">Keine Agenten gefunden</system:String>
+    <system:String x:Key="AgentManagement">Agentenverwaltung</system:String>
+    <system:String x:Key="NoAvailableData">Keine verfügbaren Daten</system:String>
+    <system:String x:Key="LogoutConfirmation">Abmeldebestätigung</system:String>
+    <system:String x:Key="LogoutConfirmationMessage">Sind Sie sicher, dass Sie sich abmelden möchten?</system:String>
+
+
+    <system:String x:Key="OptionsManagement">Optionsverwaltung</system:String>
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="Description">Beschreibung</system:String>
+    <system:String x:Key="Price">Preis</system:String>
+    <system:String x:Key="SearchOptions">Optionen suchen</system:String>
+    <system:String x:Key="AddOption">Option hinzufügen</system:String>
+    <system:String x:Key="OptionAdded">Option erfolgreich hinzugefügt</system:String>
+    <system:String x:Key="OptionUpdated">Option erfolgreich aktualisiert</system:String>
+    <system:String x:Key="OptionDeleted">Option erfolgreich gelöscht</system:String>
+    <system:String x:Key="DeleteOptionConfirmation">Sind Sie sicher, dass Sie die Option '{0}' löschen möchten?</system:String>
+
+
+    <system:String x:Key="OptionDetails">Optionsdetails</system:String>
+    <system:String x:Key="EditOption">Option bearbeiten</system:String>
+    <system:String x:Key="NameRequired">Optionsname ist erforderlich.</system:String>
+    <system:String x:Key="InvalidPrice">Ungültiger Preis. Bitte geben Sie einen gültigen Preis zwischen 0 und 999,99 ein.</system:String>
+    <system:String x:Key="OptionNameExists">Eine Option mit diesem Namen existiert bereits.</system:String>
+
+    <system:String x:Key="AccountSettings">Kontoeinstellungen</system:String>
+    <system:String x:Key="ChangePassword">Passwort ändern</system:String>
+    <system:String x:Key="OldPassword">Aktuelles Passwort</system:String>
+    <system:String x:Key="NewPassword">Neues Passwort</system:String>
+    <system:String x:Key="ConfirmNewPassword">Neues Passwort bestätigen</system:String>
+    <system:String x:Key="IncorrectCurrentPassword">Das aktuelle Passwort ist falsch.</system:String>
+    <system:String x:Key="PasswordCannotBeEmpty">Passwort darf nicht leer sein.</system:String>
+    <system:String x:Key="PasswordsDoNotMatch">Die neuen Passwörter stimmen nicht überein.</system:String>
+    <system:String x:Key="PasswordChangedSuccessfully">Passwort erfolgreich geändert.</system:String>
+
+    <system:String x:Key="AccountInformation">Kontoinformationen</system:String>
+
+    <system:String x:Key="UserInfoUpdatedSuccessfully">Benutzerdaten wurden erfolgreich aktualisiert</system:String>
+
+    <system:String x:Key="VehicleManagement">Fahrzeugverwaltung</system:String>
+    <system:String x:Key="AddVehicle">Fahrzeug hinzufügen</system:String>
+    <system:String x:Key="EditVehicle">Fahrzeug bearbeiten</system:String>
+    <system:String x:Key="VehicleDetails">Fahrzeugdetails</system:String>
+    <system:String x:Key="Category">Kategorie</system:String>
+    <system:String x:Key="Brand">Marke</system:String>
+    <system:String x:Key="Model">Modell</system:String>
+    <system:String x:Key="Year">Baujahr</system:String>
+    <system:String x:Key="Power">Leistung</system:String>
+    <system:String x:Key="DailyRate">Tagestarif</system:String>
+    <system:String x:Key="WeeklyRate">Wochentarif</system:String>
+    <system:String x:Key="Image">Bild</system:String>
+    <system:String x:Key="Browse">Durchsuchen</system:String>
+    <system:String x:Key="SearchVehicles">Fahrzeuge suchen</system:String>
+    <system:String x:Key="AllCategories">Alle Kategorien</system:String>
+    <system:String x:Key="YearAndPower">Baujahr und Leistung</system:String>
+    <system:String x:Key="Prices">Preise</system:String>
+    <system:String x:Key="NoAvailableVehicles">Keine verfügbaren Fahrzeuge</system:String>
+    <system:String x:Key="PreviousPage">Vorherige Seite</system:String>
+    <system:String x:Key="NextPage">Nächste Seite</system:String>
+    <system:String x:Key="VehicleAdded">Fahrzeug erfolgreich hinzugefügt</system:String>
+    <system:String x:Key="VehicleUpdated">Fahrzeug erfolgreich aktualisiert</system:String>
+    <system:String x:Key="VehicleDeleted">Fahrzeug erfolgreich gelöscht</system:String>
+    <system:String x:Key="DeleteVehicleConfirmation">Sind Sie sicher, dass Sie das Fahrzeug {0} löschen möchten?</system:String>
+    <system:String x:Key="VehicleInUse">Fahrzeug kann nicht gelöscht werden, da es derzeit in Gebrauch ist</system:String>
+    <system:String x:Key="SelectImage">Bild auswählen</system:String>
+    <system:String x:Key="ValidationError">Validierungsfehler</system:String>
+    <system:String x:Key="CategoryRequired">Kategorie ist erforderlich</system:String>
+    <system:String x:Key="BrandRequired">Marke ist erforderlich</system:String>
+    <system:String x:Key="ModelRequired">Modell ist erforderlich</system:String>
+    <system:String x:Key="YearInvalid">Baujahr muss zwischen 1900 und dem aktuellen Jahr liegen</system:String>
+    <system:String x:Key="PowerInvalid">Leistung muss eine positive Zahl sein</system:String>
+    <system:String x:Key="DailyRateInvalid">Ungültiger Tagessatz. Muss im Bereich von 0 bis 999,99 liegen</system:String>
+    <system:String x:Key="WeeklyRateInvalid">Ungültiger Wochensatz. Muss im Bereich von 0 bis 9999,99 liegen</system:String>
+
+    <system:String x:Key="ProblemsManagement">Problemverwaltung</system:String>
+    <system:String x:Key="ProblemDetails">Problemdetails</system:String>
+    <system:String x:Key="ProcessProblem">Problem bearbeiten</system:String>
+    <system:String x:Key="EditProblemFeedback">Rückmeldung bearbeiten</system:String>
+    <system:String x:Key="Agent">Agent</system:String>
+    <system:String x:Key="ProblemDescription">Problembeschreibung</system:String>
+    <system:String x:Key="CreationDate">Erstellungsdatum</system:String>
+    <system:String x:Key="ProcessingDate">Bearbeitungsdatum</system:String>
+    <system:String x:Key="Feedback">Rückmeldung</system:String>
+    <system:String x:Key="Process">Bearbeiten</system:String>
+    <system:String x:Key="View">Ansehen</system:String>
+    <system:String x:Key="Close">Schließen</system:String>
+    <system:String x:Key="AllProblems">Alle Probleme</system:String>
+    <system:String x:Key="UnprocessedProblems">Unbearbeitete Probleme</system:String>
+    <system:String x:Key="ProcessedProblems">Bearbeitete Probleme</system:String>
+    <system:String x:Key="NoAvailableProblems">Keine verfügbaren Probleme</system:String>
+    <system:String x:Key="SearchProblems">Probleme suchen</system:String>
+    <system:String x:Key="FeedbackRequired">Rückmeldung ist erforderlich</system:String>
+    <system:String x:Key="ProblemProcessed">Problem erfolgreich bearbeitet</system:String>
+
+
+    
+    <system:String x:Key="MyProblems">Meine Probleme</system:String>
+    <system:String x:Key="FilterBy">Filtern nach:</system:String>
+    <system:String x:Key="AddProblem">Problem hinzufügen</system:String>
+    <system:String x:Key="Status">Status</system:String>
+    <system:String x:Key="Admin">Administrator</system:String>
+    <system:String x:Key="Unprocessed">Unbearbeitet</system:String>
+    <system:String x:Key="Processed">Bearbeitet</system:String>
+    <system:String x:Key="DeleteProblemConfirmation">Sind Sie sicher, dass Sie dieses Problem löschen möchten?</system:String>
+    <system:String x:Key="Confirmation">Bestätigung</system:String>
+    <system:String x:Key="ProblemDeleted">Problem wurde erfolgreich gelöscht</system:String>
+    <system:String x:Key="ProblemCreated">Problem wurde erfolgreich erstellt</system:String>
+    <system:String x:Key="ProblemDescriptionRequired">Problembeschreibung ist erforderlich</system:String>
+
+    <system:String x:Key="ClientsTab">Kunden</system:String>
+    <system:String x:Key="ClientManagement">Kundenverwaltung</system:String>
+    <system:String x:Key="ClientDetails">Kundendetails</system:String>
+    <system:String x:Key="AddClient">Kunde hinzufügen</system:String>
+    <system:String x:Key="EditClient">Kunde bearbeiten</system:String>
+    <system:String x:Key="FirstName">Vorname</system:String>
+    <system:String x:Key="LastName">Nachname</system:String>
+    <system:String x:Key="SearchClients">Kunden suchen</system:String>
+    <system:String x:Key="DeleteClientConfirmation">Sind Sie sicher, dass Sie den Kunden {0} löschen möchten?</system:String>
+    <system:String x:Key="ClientAdded">Kunde wurde erfolgreich hinzugefügt</system:String>
+    <system:String x:Key="ClientUpdated">Kunde wurde erfolgreich aktualisiert</system:String>
+    <system:String x:Key="ClientDeleted">Kunde wurde erfolgreich gelöscht</system:String>
+    <system:String x:Key="ClientHasRentals">Kunde hat aktive Vermietungen und kann nicht gelöscht werden</system:String>
+    <system:String x:Key="FirstNameRequired">Vorname ist erforderlich</system:String>
+    <system:String x:Key="LastNameRequired">Nachname ist erforderlich</system:String>
+
+    <system:String x:Key="VehicleRental">Fahrzeugvermietung</system:String>
+    <system:String x:Key="RentVehicle">Fahrzeug mieten</system:String>
+    <system:String x:Key="ClearFilter">Filter löschen</system:String>
+    <system:String x:Key="VehicleRented">Fahrzeug wurde erfolgreich gemietet</system:String>
+
+    <system:String x:Key="RentalDetails">Mietdetails</system:String>
+    <system:String x:Key="NewRental">Neue Vermietung</system:String>
+    <system:String x:Key="SelectedDates">Ausgewählte Daten</system:String>
+    <system:String x:Key="StartDate">Startdatum</system:String>
+    <system:String x:Key="EndDate">Enddatum</system:String>
+    <system:String x:Key="TotalDays">Gesamttage</system:String>
+    <system:String x:Key="RentalRate">Mietrate</system:String>
+    <system:String x:Key="Client">Kunde</system:String>
+    <system:String x:Key="AdditionalOptions">Zusätzliche Optionen</system:String>
+    <system:String x:Key="AdditionalNotes">Zusätzliche Notizen</system:String>
+    <system:String x:Key="TotalPrice">Gesamtpreis</system:String>
+    <system:String x:Key="Confirm">Bestätigen</system:String>
+
+    <system:String x:Key="ErrorLoadingClients">Fehler beim Laden der Kunden</system:String>
+    <system:String x:Key="ErrorLoadingOptions">Fehler beim Laden der Optionen</system:String>
+    <system:String x:Key="SelectRentalDates">Bitte wählen Sie Mietdaten aus</system:String>
+    <system:String x:Key="SelectClient">Bitte wählen Sie einen Kunden aus</system:String>
+    <system:String x:Key="ErrorCreatingRental">Fehler beim Erstellen der Vermietung</system:String>
+    <system:String x:Key="CannotSelectUnavailableDates">Es ist nicht möglich, einen Datumsbereich auszuwählen, der nicht verfügbare Termine enthält. Bitte wählen Sie nur verfügbare Termine aus.</system:String>
+
+    <system:String x:Key="RentalsManagement">Mietverwaltung</system:String>
+    <system:String x:Key="Customer">Kunde</system:String>
+    <system:String x:Key="Vehicle">Fahrzeug</system:String>
+    <system:String x:Key="RentalDate">Von</system:String>
+    <system:String x:Key="ReturnDate">Bis</system:String>
+    <system:String x:Key="SearchRentals">Mietverträge durchsuchen</system:String>
+    <system:String x:Key="AddRental">Mietvertrag hinzufügen</system:String>
+    <system:String x:Key="AllStatuses">Alle Status</system:String>
+    <system:String x:Key="RentalAdded">Mietvertrag erfolgreich hinzugefügt</system:String>
+    <system:String x:Key="RentalUpdated">Mietvertrag erfolgreich aktualisiert</system:String>
+    <system:String x:Key="RentalDeleted">Mietvertrag erfolgreich gelöscht</system:String>
+    <system:String x:Key="DeleteRentalConfirmation">Sind Sie sicher, dass Sie den Mietvertrag für {0} vom {1} löschen möchten?</system:String>
+
+    <system:String x:Key="OptionsPrice">Gesamtpreis der Optionen</system:String>
+    <system:String x:Key="TotalRentPrice">Gesamtpreis</system:String>
+
+    <system:String x:Key="ChangeRentalStatus">Mietstatus ändern</system:String>
+    <system:String x:Key="NotReturned">Nicht zurückgegeben</system:String>
+    <system:String x:Key="FromDate">von</system:String>
+    <system:String x:Key="ToDate">bis</system:String>
+    <system:String x:Key="SelectStatus">Bitte wählen Sie einen Status</system:String>
+    <system:String x:Key="ErrorSaving">Fehler beim Speichern</system:String>
+    <system:String x:Key="RentalStatusUpdated">Der Mietstatus wurde erfolgreich aktualisiert</system:String>
+
+    <system:String x:Key="Back">Zurück</system:String>
+
+
+    <system:String x:Key="CreateReservation">Reservierung erstellen</system:String>
+    <system:String x:Key="SelectDatesAndVehicle">Datum und Fahrzeug auswählen</system:String>
+    <system:String x:Key="FindAvailableVehicles">Verfügbare Fahrzeuge finden</system:String>
+    <system:String x:Key="AvailableVehicles">Verfügbare Fahrzeuge</system:String>
+    <system:String x:Key="BackToDates">Zurück zu Daten</system:String>
+    <system:String x:Key="Make">Marke</system:String>
+    <system:String x:Key="SelectedVehicle">Ausgewähltes Fahrzeug</system:String>
+    <system:String x:Key="NewClient">Neuer Kunde</system:String>
+    <system:String x:Key="FullName">Vollständiger Name</system:String>
+    <system:String x:Key="Phone">Telefon</system:String>
+    <system:String x:Key="ReservationSummary">Reservierungszusammenfassung</system:String>
+    <system:String x:Key="BackToVehicles">Zurück zu Fahrzeugen</system:String>
+    <system:String x:Key="ErrorLoadingCategories">Fehler beim Laden der Kategorien</system:String>
+    <system:String x:Key="ErrorLoadingVehicles">Fehler beim Laden der Fahrzeuge</system:String>
+    <system:String x:Key="SelectVehicle">Wählen Sie ein Fahrzeug aus</system:String>
+    <system:String x:Key="SelectClientAndOptions">Wählen Sie Kunden und Optionen aus</system:String>
+    <system:String x:Key="Information">Information</system:String>
+    <system:String x:Key="ClientCreationNotImplemented">Kundenerstellung ist noch nicht implementiert</system:String>
+    <system:String x:Key="ErrorCreatingReservation">Fehler beim Erstellen der Reservierung</system:String>
+
+
+    <system:String x:Key="NoOptionsSelected">Keine Mietoptionen ausgewählt</system:String>
+    <system:String x:Key="NoClientSelected">Kein Kunde ausgewählt</system:String>
+    <system:String x:Key="ShowPricing">Angebot anzeigen</system:String>
+    <system:String x:Key="SelectVehiclePlease">Bitte wählen Sie ein Fahrzeug aus</system:String>
+    <system:String x:Key="PutInAdditionalNotes">Zusätzliche Anmerkungen eingeben [Optional]</system:String>
+
+    <system:String x:Key="RentalsManagementView">Mietübersicht</system:String>
+
+    <system:String x:Key="PriceExceedsLimit">Der gesamte Mietpreis muss unter 10.000 liegen! Bitte passen Sie die Vermietung so an, dass der Preis unter dem erlaubten Limit liegt.</system:String>
+
+
+</ResourceDictionary>

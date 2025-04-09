@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Res\addcars.png" />
+    <None Remove="Res\add_agent.png" />
+    <None Remove="Res\delete.png" />
+    <None Remove="Res\edit.png" />
+    <None Remove="Res\error.png" />
+    <None Remove="Res\icon.png" />
+    <None Remove="Res\info.png" />
+    <None Remove="Res\login.png" />
+    <None Remove="Res\options.png" />
+    <None Remove="Res\problems.png" />
+    <None Remove="Res\question.png" />
+    <None Remove="Res\rentals.png" />
+    <None Remove="Res\search.png" />
+    <None Remove="Res\settings.png" />
+    <None Remove="Res\showdetails.png" />
+    <None Remove="Res\success.png" />
+    <None Remove="Res\users.png" />
+    <None Remove="Res\vehicleone.png" />
+    <None Remove="Res\vehicles.png" />
+    <None Remove="Res\warning.png" />
+    <None Remove="Res\x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.*">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.*" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Res\addcars.png" />
+    <Resource Include="Res\add_agent.png" />
+    <Resource Include="Res\delete.png" />
+    <Resource Include="Res\edit.png" />
+    <Resource Include="Res\error.png" />
+    <Resource Include="Res\info.png" />
+    <Resource Include="Res\options.png" />
+    <Resource Include="Res\problems.png" />
+    <Resource Include="Res\question.png" />
+    <Resource Include="Res\rentals.png" />
+    <Resource Include="Res\search.png" />
+    <Resource Include="Res\settings.png" />
+    <Resource Include="Res\showdetails.png" />
+    <Resource Include="Res\success.png" />
+    <Resource Include="Res\users.png" />
+    <Resource Include="Res\icon.png" />
+    <Resource Include="Res\login.png" />
+    <Resource Include="Res\vehicleone.png" />
+    <Resource Include="Res\vehicles.png" />
+    <Resource Include="Res\warning.png" />
+    <Resource Include="Res\x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Languages\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
+</Project>

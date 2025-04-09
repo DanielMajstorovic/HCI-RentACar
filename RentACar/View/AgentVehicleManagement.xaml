@@ -1,0 +1,576 @@
+﻿<UserControl x:Class="RentACar.View.AgentVehicleManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:RentACar.View"
+             xmlns:converters="clr-namespace:RentACar.Converters"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="650"
+             d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:GreaterThanMinusOneConverter x:Key="GreaterThanMinusOneConverter" />
+
+        <ControlTemplate x:Key="ComboBoxToggleButton"
+                         TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border"
+                        Grid.ColumnSpan="2"
+                        CornerRadius="6"
+                        Background="White"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1" />
+                <Path x:Name="Arrow"
+                      Grid.Column="1"
+                      Fill="{DynamicResource TextSecondaryBrush}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Data="M0,0 L4,4 L8,0" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter TargetName="Border"
+                            Property="Opacity"
+                            Value="0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox"
+                         TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost"
+                    Focusable="False"
+                    Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}"
+               TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Padding"
+                    Value="8,0" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll"
+                    Value="true" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                                          Template="{StaticResource ComboBoxToggleButton}"
+                                          Focusable="false"
+                                          IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              Margin="8,0,30,0"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left" />
+                            <Popup Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Border x:Name="DropDownBorder"
+                                        Background="{DynamicResource BackgroundBrush}"
+                                        BorderBrush="{DynamicResource BorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="6"
+                                        MinWidth="{TemplateBinding ActualWidth}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <ScrollViewer Margin="4"
+                                                  SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="{x:Type ComboBoxItem}"
+               TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="true" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                                Padding="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted"
+                                     Value="true">
+                                <Setter TargetName="Border"
+                                        Property="Background"
+                                        Value="{DynamicResource SecondaryBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Card style -->
+        <Style x:Key="VehicleCardStyle"
+               TargetType="Border">
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="CornerRadius"
+                    Value="10" />
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="2"
+                                      BlurRadius="5"
+                                      Opacity="0.3" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="StyledButton"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Opacity"
+                                        Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Pagination button style -->
+        <Style x:Key="PaginationButtonStyle"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Width"
+                    Value="40" />
+            <Setter Property="Height"
+                    Value="40" />
+            <Setter Property="Margin"
+                    Value="3" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Opacity"
+                                        Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Active pagination button style -->
+        <Style x:Key="ActivePaginationButtonStyle"
+               TargetType="Button"
+               BasedOn="{StaticResource PaginationButtonStyle}">
+            <Setter Property="Background"
+                    Value="#007bff" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="{DynamicResource VehicleRental}"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Margin="20,15,0,15"
+                   Foreground="{DynamicResource TextPrimaryBrush}" />
+
+        <!-- Header with search and filter -->
+        <Grid Grid.Row="1"
+              Margin="20,5,20,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Search Box -->
+            <Border Background="{DynamicResource TextSecondaryBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="10,0"
+                    Height="40"
+                    Width="300"
+                    HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="pack://application:,,,/Res/search.png"
+                           Width="16"
+                           Height="16"
+                           Margin="5,0,10,0" />
+                    <TextBox x:Name="SearchBox"
+                             Grid.Column="1"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             VerticalAlignment="Center"
+                             Foreground="{DynamicResource TextPrimaryBrush}"
+                             TextChanged="SearchBox_TextChanged"
+                             Tag="{DynamicResource SearchVehicles}"
+                             ToolTip="{DynamicResource SearchVehicles}" />
+                </Grid>
+            </Border>
+
+            <!-- Category Filter with Filter Icon and Clear Button -->
+            <Grid Grid.Column="1"
+                  Width="200"
+                  Margin="15,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Category Filter ComboBox -->
+                <ComboBox x:Name="CategoryFilter"
+                          Grid.Column="0"
+                          Height="40"
+                          VerticalContentAlignment="Center"
+                          BorderThickness="1"
+                          BorderBrush="{DynamicResource BorderBrush}"
+                          Background="{DynamicResource TextSecondaryBrush}"
+                          Foreground="{DynamicResource TextPrimaryBrush}"
+                          DisplayMemberPath="Naziv"
+                          SelectedValuePath="IdKategorijaVozila"
+                          SelectionChanged="CategoryFilter_SelectionChanged">
+                    <ComboBox.Resources>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="HorizontalContentAlignment"
+                                    Value="Left" />
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
+
+                <!-- Filter Icon  -->
+                <materialDesign:PackIcon Kind="Filter"
+                                         Grid.Column="0"
+                                         HorizontalAlignment="Right"
+                                         VerticalAlignment="Center"
+                                         Margin="0,0,165,0"
+                                         Foreground="{DynamicResource TextPrimaryBrush}"
+                                         Width="20"
+                                         Height="20">
+                    <materialDesign:PackIcon.Style>
+                        <Style TargetType="materialDesign:PackIcon">
+                            <Setter Property="Visibility"
+                                    Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=CategoryFilter, Path=SelectedIndex}"
+                                             Value="-1">
+                                    <Setter Property="Visibility"
+                                            Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=CategoryFilter, Path=SelectedIndex}"
+                                             Value="{x:Null}">
+                                    <Setter Property="Visibility"
+                                            Value="Visible" />
+                                </DataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=CategoryFilter, Path=SelectedIndex}"
+                                                   Value="-1" />
+                                        <Condition Binding="{Binding ElementName=CategoryFilter, Path=IsDropDownOpen}"
+                                                   Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility"
+                                            Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=CategoryFilter, Path=SelectedIndex, Converter={StaticResource GreaterThanMinusOneConverter}}"
+                                             Value="True">
+                                    <Setter Property="Visibility"
+                                            Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </materialDesign:PackIcon.Style>
+                </materialDesign:PackIcon>
+
+                <!-- Clear Filter Button  -->
+                <Button x:Name="ClearFilterButton"
+                        Grid.Column="1"
+                        Width="30"
+                        Height="30"
+                        Margin="5,0,0,0"
+                        Padding="0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="ClearFilterButton_Click"
+                        Visibility="Collapsed"
+                        ToolTip="{DynamicResource ClearFilter}">
+                    <materialDesign:PackIcon Kind="FilterRemove"
+                                             Width="20"
+                                             Height="20"
+                                             Foreground="{DynamicResource TextPrimaryBrush}" />
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!-- Vehicle Cards Grid -->
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="10,0">
+            <Grid>
+                <ItemsControl x:Name="VehiclesItemsControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource VehicleCardStyle}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="170" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Vehicle Name -->
+                                    <TextBlock Grid.Row="0"
+                                               Grid.ColumnSpan="2"
+                                               Text="{Binding FullName}"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               HorizontalAlignment="Center"
+                                               Foreground="{DynamicResource TextPrimaryBrush}"
+                                               Margin="0,20,0,20" />
+
+                                    <!-- Vehicle Image -->
+                                    <Image Grid.Row="1"
+                                           Source="{Binding ImagePath}"
+                                           Stretch="UniformToFill"
+                                           Height="170">
+                                    </Image>
+
+                                    <!-- Vehicle Info -->
+                                    <Grid Grid.Row="2"
+                                          Margin="15,10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Category -->
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Text="{DynamicResource Category}"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,10,5" />
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Text="{Binding KategorijaVozilaIdKategorijaVozilaNavigation.Naziv}"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,0,5" />
+
+                                        <!-- Year and Power -->
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Text="{DynamicResource YearAndPower}"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,10,5" />
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   Text="{Binding YearAndPower}"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,0,5" />
+
+                                        <!-- Prices -->
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Text="{DynamicResource Prices}"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,10,0" />
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   Text="{Binding PriceInfo}"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}"
+                                                   Margin="0,0,0,30" />
+                                    </Grid>
+
+                                    <!-- Rent Button -->
+                                    <Button Grid.Row="3"
+                                            Click="RentVehicleButton_Click"
+                                            Margin="0,0,0,15"
+                                            HorizontalAlignment="Center"
+                                            Style="{StaticResource StyledButton}"
+                                            Width="180"
+                                            Height="35">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="pack://application:,,,/Res/rentals.png"
+                                                   Width="20"
+                                                   Height="20"
+                                                   Margin="0,0,5,0"
+                                                   VerticalAlignment="Center" />
+                                            <TextBlock Text="{DynamicResource RentVehicle}"
+                                                       VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- No Data Message -->
+                <TextBlock Text="{DynamicResource NoAvailableVehicles}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="{DynamicResource TextPrimaryBrush}"
+                           Visibility="{Binding HasItems, ElementName=VehiclesItemsControl, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Pagination -->
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,20">
+            <Button x:Name="PrevButton"
+                    Style="{StaticResource PaginationButtonStyle}"
+                    Click="PrevButton_Click"
+                    Content="&lt;"
+                    ToolTip="{DynamicResource PreviousPage}" />
+
+            <!-- Page Counter -->
+            <Border Width="Auto"
+                    MinWidth="80"
+                    Padding="10,0">
+                <TextBlock x:Name="PageCounter"
+                           Text="1/1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Visibility="{Binding HasItems, ElementName=VehiclesItemsControl, Converter={StaticResource BooleanToVisibilityConverter}}"
+                           Foreground="{DynamicResource TextPrimaryBrush}" />
+            </Border>
+
+            <Button x:Name="NextButton"
+                    Style="{StaticResource PaginationButtonStyle}"
+                    Click="NextButton_Click"
+                    Content="&gt;"
+                    ToolTip="{DynamicResource NextPage}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

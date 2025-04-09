@@ -1,0 +1,266 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="SettingsTab">Settings</system:String>
+    <system:String x:Key="VehiclesTab">Vehicles</system:String>
+    <system:String x:Key="OptionsTab">Options</system:String>
+    <system:String x:Key="RentalsTab">Rentals</system:String>
+    <system:String x:Key="ProblemsTab">Problems</system:String>
+    <system:String x:Key="AgentsTab">Agents</system:String>
+    <system:String x:Key="MenuText">Menu</system:String>
+    <system:String x:Key="Welcome">Welcome</system:String>
+    <system:String x:Key="LoginToAccount">Login to your account</system:String>
+    <system:String x:Key="Username">Username</system:String>
+    <system:String x:Key="Password">Password</system:String>
+    <system:String x:Key="Login">Login</system:String>
+    <system:String x:Key="PremiumCars">Premium cars for every occasion</system:String>
+    <system:String x:Key="RentLuxury">Rent luxury vehicles at the best prices</system:String>
+    <system:String x:Key="SearchAgents">Search agents...</system:String>
+    <system:String x:Key="AddAgent">Add Agent</system:String>
+    <system:String x:Key="EditAgent">Edit Agent</system:String>
+    <system:String x:Key="Email">Email</system:String>
+    <system:String x:Key="Location">Location</system:String>
+    <system:String x:Key="Salary">Salary</system:String>
+    <system:String x:Key="Action">Action</system:String>
+    <system:String x:Key="Edit">Edit</system:String>
+    <system:String x:Key="Delete">Delete</system:String>
+    <system:String x:Key="Save">Save</system:String>
+    <system:String x:Key="Cancel">Cancel</system:String>
+    <system:String x:Key="Ok">OK</system:String>
+    <system:String x:Key="PhoneNumber">Phone Number</system:String>
+    <system:String x:Key="PhoneNumbers">Phone Numbers</system:String>
+    <system:String x:Key="AgentDetails">Agent Details</system:String>
+    <system:String x:Key="ConfirmDelete">Confirm Delete</system:String>
+    <system:String x:Key="DeleteAgentConfirmation">Are you sure you want to delete agent '{0}'?</system:String>
+    <system:String x:Key="Success">Success</system:String>
+    <system:String x:Key="Error">Error</system:String>
+    <system:String x:Key="AgentAdded">Agent has been successfully added.</system:String>
+    <system:String x:Key="AgentUpdated">Agent has been successfully updated.</system:String>
+    <system:String x:Key="AgentDeleted">Agent has been successfully deleted.</system:String>
+    <system:String x:Key="ErrorLoadingData">Error Loading Data</system:String>
+    <system:String x:Key="UsernameRequired">Username is required.</system:String>
+    <system:String x:Key="PasswordRequired">Password is required.</system:String>
+    <system:String x:Key="InvalidEmail">Please enter a valid email address.</system:String>
+    <system:String x:Key="LocationRequired">Location is required.</system:String>
+    <system:String x:Key="InvalidSalary">Please enter a valid salary amount.</system:String>
+    <system:String x:Key="UsernameExists">Username already exists.</system:String>
+    <system:String x:Key="EmailExists">Email already exists.</system:String>
+    <system:String x:Key="PhoneNumberRequired">Phone number is required.</system:String>
+    <system:String x:Key="InvalidPhoneNumber">Please enter a valid phone number.</system:String>
+    <system:String x:Key="PhoneNumberAlreadyExists">This phone number already exists in the list.</system:String>
+    <system:String x:Key="LoginError">Login Error</system:String>
+    <system:String x:Key="PleaseEnterCredentials">Please enter username and password.</system:String>
+    <system:String x:Key="InvalidCredentials">Invalid username or password.</system:String>
+    <system:String x:Key="UnsupportedAccountType">Unsupported account type.</system:String>
+    <system:String x:Key="LoginFailure">Login failed</system:String>
+    <system:String x:Key="AgentLogin">Agent Login</system:String>
+    <system:String x:Key="WelcomeAgent">Welcome</system:String>
+    <system:String x:Key="NoAgentsFound">No agents found</system:String>
+    <system:String x:Key="AgentManagement">Agent Management</system:String>
+    <system:String x:Key="NoAvailableData">No available data</system:String>
+    <system:String x:Key="LogoutConfirmation">Logout Confirmation</system:String>
+    <system:String x:Key="LogoutConfirmationMessage">Are you sure you want to log out?</system:String>
+
+    <system:String x:Key="OptionsManagement">Options Management</system:String>
+    <system:String x:Key="Name">Name</system:String>
+    <system:String x:Key="Description">Description</system:String>
+    <system:String x:Key="Price">Price</system:String>
+    <system:String x:Key="SearchOptions">Search Options</system:String>
+    <system:String x:Key="AddOption">Add Option</system:String>
+    <system:String x:Key="OptionAdded">Option successfully added</system:String>
+    <system:String x:Key="OptionUpdated">Option successfully updated</system:String>
+    <system:String x:Key="OptionDeleted">Option successfully deleted</system:String>
+    <system:String x:Key="DeleteOptionConfirmation">Are you sure you want to delete the option '{0}'?</system:String>
+
+
+    <system:String x:Key="OptionDetails">Option Details</system:String>
+    <system:String x:Key="EditOption">Edit Option</system:String>
+    <system:String x:Key="NameRequired">Option name is required.</system:String>
+    <system:String x:Key="InvalidPrice">Invalid price. Please enter a valid price between 0 and 999.99.</system:String>
+    <system:String x:Key="OptionNameExists">An option with this name already exists.</system:String>
+
+
+    <system:String x:Key="AccountSettings">Account Settings</system:String>
+    <system:String x:Key="ChangePassword">Change Password</system:String>
+    <system:String x:Key="OldPassword">Current Password</system:String>
+    <system:String x:Key="NewPassword">New Password</system:String>
+    <system:String x:Key="ConfirmNewPassword">Confirm New Password</system:String>
+    <system:String x:Key="IncorrectCurrentPassword">The current password is incorrect.</system:String>
+    <system:String x:Key="PasswordCannotBeEmpty">Password cannot be empty.</system:String>
+    <system:String x:Key="PasswordsDoNotMatch">New passwords do not match.</system:String>
+    <system:String x:Key="PasswordChangedSuccessfully">Password changed successfully.</system:String>
+
+    <system:String x:Key="AccountInformation">Account information</system:String>
+
+    <system:String x:Key="UserInfoUpdatedSuccessfully">User information has been successfully updated</system:String>
+
+    <system:String x:Key="VehicleManagement">Vehicle Management</system:String>
+    <system:String x:Key="AddVehicle">Add Vehicle</system:String>
+    <system:String x:Key="EditVehicle">Edit Vehicle</system:String>
+    <system:String x:Key="VehicleDetails">Vehicle Details</system:String>
+    <system:String x:Key="Category">Category</system:String>
+    <system:String x:Key="Brand">Brand</system:String>
+    <system:String x:Key="Model">Model</system:String>
+    <system:String x:Key="Year">Year</system:String>
+    <system:String x:Key="Power">Power</system:String>
+    <system:String x:Key="DailyRate">Daily Rate</system:String>
+    <system:String x:Key="WeeklyRate">Weekly Rate</system:String>
+    <system:String x:Key="Image">Image</system:String>
+    <system:String x:Key="Browse">Browse</system:String>
+    <system:String x:Key="SearchVehicles">Search Vehicles</system:String>
+    <system:String x:Key="AllCategories">All Categories</system:String>
+    <system:String x:Key="YearAndPower">Year and Power</system:String>
+    <system:String x:Key="Prices">Prices</system:String>
+    <system:String x:Key="NoAvailableVehicles">No Available Vehicles</system:String>
+    <system:String x:Key="PreviousPage">Previous Page</system:String>
+    <system:String x:Key="NextPage">Next Page</system:String>
+    <system:String x:Key="VehicleAdded">Vehicle successfully added</system:String>
+    <system:String x:Key="VehicleUpdated">Vehicle successfully updated</system:String>
+    <system:String x:Key="VehicleDeleted">Vehicle successfully deleted</system:String>
+    <system:String x:Key="DeleteVehicleConfirmation">Are you sure you want to delete the vehicle {0}?</system:String>
+    <system:String x:Key="VehicleInUse">Vehicle cannot be deleted because it is currently in use</system:String>
+    <system:String x:Key="SelectImage">Select Image</system:String>
+    <system:String x:Key="ValidationError">Validation Error</system:String>
+    <system:String x:Key="CategoryRequired">Category is required</system:String>
+    <system:String x:Key="BrandRequired">Brand is required</system:String>
+    <system:String x:Key="ModelRequired">Model is required</system:String>
+    <system:String x:Key="YearInvalid">Year must be between 1900 and current year</system:String>
+    <system:String x:Key="PowerInvalid">Power must be a positive number</system:String>
+    <system:String x:Key="DailyRateInvalid">Invalid daily rate. Must be in the range of 0 to 999.99</system:String>
+    <system:String x:Key="WeeklyRateInvalid">Invalid weekly rate. Must be in the range of 0 to 9999.99</system:String>
+
+
+    <system:String x:Key="ProblemsManagement">Problem Management</system:String>
+    <system:String x:Key="ProblemDetails">Problem Details</system:String>
+    <system:String x:Key="ProcessProblem">Process Problem</system:String>
+    <system:String x:Key="EditProblemFeedback">Edit Feedback</system:String>
+    <system:String x:Key="Agent">Agent</system:String>
+    <system:String x:Key="ProblemDescription">Problem Description</system:String>
+    <system:String x:Key="CreationDate">Creation Date</system:String>
+    <system:String x:Key="ProcessingDate">Processing Date</system:String>
+    <system:String x:Key="Feedback">Feedback</system:String>
+    <system:String x:Key="Process">Process</system:String>
+    <system:String x:Key="View">View</system:String>
+    <system:String x:Key="Close">Close</system:String>
+    <system:String x:Key="AllProblems">All Problems</system:String>
+    <system:String x:Key="UnprocessedProblems">Unprocessed Problems</system:String>
+    <system:String x:Key="ProcessedProblems">Processed Problems</system:String>
+    <system:String x:Key="NoAvailableProblems">No Available Problems</system:String>
+    <system:String x:Key="SearchProblems">Search Problems</system:String>
+    <system:String x:Key="FeedbackRequired">Feedback is required</system:String>
+    <system:String x:Key="ProblemProcessed">Problem successfully processed</system:String>
+
+
+    <system:String x:Key="MyProblems">My Problems</system:String>
+    <system:String x:Key="FilterBy">Filter by:</system:String>
+    <system:String x:Key="AddProblem">Add Problem</system:String>
+    <system:String x:Key="Status">Status</system:String>
+    <system:String x:Key="Admin">Admin</system:String>
+    <system:String x:Key="Unprocessed">Unprocessed</system:String>
+    <system:String x:Key="Processed">Processed</system:String>
+    <system:String x:Key="DeleteProblemConfirmation">Are you sure you want to delete this problem?</system:String>
+    <system:String x:Key="Confirmation">Confirmation</system:String>
+    <system:String x:Key="ProblemDeleted">Problem has been successfully deleted</system:String>
+    <system:String x:Key="ProblemCreated">Problem has been successfully created</system:String>
+    <system:String x:Key="ProblemDescriptionRequired">Problem description is required</system:String>
+
+    <system:String x:Key="ClientsTab">Clients</system:String>
+    <system:String x:Key="ClientManagement">Client Management</system:String>
+    <system:String x:Key="ClientDetails">Client Details</system:String>
+    <system:String x:Key="AddClient">Add Client</system:String>
+    <system:String x:Key="EditClient">Edit Client</system:String>
+    <system:String x:Key="FirstName">First Name</system:String>
+    <system:String x:Key="LastName">Last Name</system:String>
+    <system:String x:Key="SearchClients">Search Clients</system:String>
+    <system:String x:Key="DeleteClientConfirmation">Are you sure you want to delete client {0}?</system:String>
+    <system:String x:Key="ClientAdded">Client has been added successfully</system:String>
+    <system:String x:Key="ClientUpdated">Client has been updated successfully</system:String>
+    <system:String x:Key="ClientDeleted">Client has been deleted successfully</system:String>
+    <system:String x:Key="ClientHasRentals">Client has active rentals and cannot be deleted</system:String>
+    <system:String x:Key="FirstNameRequired">First name is required</system:String>
+    <system:String x:Key="LastNameRequired">Last name is required</system:String>
+
+    <system:String x:Key="VehicleRental">Vehicle Rental</system:String>
+    <system:String x:Key="RentVehicle">Rent Vehicle</system:String>
+    <system:String x:Key="ClearFilter">Clear Filter</system:String>
+    <system:String x:Key="VehicleRented">Vehicle has been successfully rented</system:String>
+
+    <system:String x:Key="RentalDetails">Rental Details</system:String>
+    <system:String x:Key="NewRental">New Rental</system:String>
+    <system:String x:Key="SelectedDates">Selected Dates</system:String>
+    <system:String x:Key="StartDate">Start Date</system:String>
+    <system:String x:Key="EndDate">End Date</system:String>
+    <system:String x:Key="TotalDays">Total Days</system:String>
+    <system:String x:Key="RentalRate">Rental Rate</system:String>
+    <system:String x:Key="Client">Client</system:String>
+    <system:String x:Key="AdditionalOptions">Additional Options</system:String>
+    <system:String x:Key="AdditionalNotes">Additional Notes</system:String>
+    <system:String x:Key="TotalPrice">Total Price</system:String>
+    <system:String x:Key="Confirm">Confirm</system:String>
+
+    <system:String x:Key="ErrorLoadingClients">Error loading clients</system:String>
+    <system:String x:Key="ErrorLoadingOptions">Error loading options</system:String>
+    <system:String x:Key="SelectRentalDates">Please select rental dates</system:String>
+    <system:String x:Key="SelectClient">Please select a client</system:String>
+    <system:String x:Key="ErrorCreatingRental">Error creating rental</system:String>
+    <system:String x:Key="CannotSelectUnavailableDates">Cannot select a date range that includes unavailable dates. Please select only available dates.</system:String>
+
+    <system:String x:Key="RentalsManagement">Rentals Management</system:String>
+    <system:String x:Key="Customer">Customer</system:String>
+    <system:String x:Key="Vehicle">Vehicle</system:String>
+    <system:String x:Key="RentalDate">From</system:String>
+    <system:String x:Key="ReturnDate">To</system:String>
+    <system:String x:Key="SearchRentals">Search rentals</system:String>
+    <system:String x:Key="AddRental">Add Rental</system:String>
+    <system:String x:Key="AllStatuses">All Statuses</system:String>
+    <system:String x:Key="RentalAdded">Rental successfully added</system:String>
+    <system:String x:Key="RentalUpdated">Rental successfully updated</system:String>
+    <system:String x:Key="RentalDeleted">Rental successfully deleted</system:String>
+    <system:String x:Key="DeleteRentalConfirmation">Are you sure you want to delete the rental for {0} from {1}?</system:String>
+
+    <system:String x:Key="OptionsPrice">Total options price</system:String>
+    <system:String x:Key="TotalRentPrice">Total price</system:String>
+
+    <system:String x:Key="ChangeRentalStatus">Change Rental Status</system:String>
+    <system:String x:Key="NotReturned">Not returned</system:String>
+    <system:String x:Key="FromDate">from</system:String>
+    <system:String x:Key="ToDate">to</system:String>
+    <system:String x:Key="SelectStatus">Please select a status</system:String>
+    <system:String x:Key="ErrorSaving">Error saving</system:String>
+    <system:String x:Key="RentalStatusUpdated">Rental status has been successfully updated</system:String>
+
+    <system:String x:Key="Back">Back</system:String>
+
+
+    <system:String x:Key="CreateReservation">Create Reservation</system:String>
+    <system:String x:Key="SelectDatesAndVehicle">Select Dates and Vehicle</system:String>
+    <system:String x:Key="FindAvailableVehicles">Find Available Vehicles</system:String>
+    <system:String x:Key="AvailableVehicles">Available Vehicles</system:String>
+    <system:String x:Key="BackToDates">Back to Dates</system:String>
+    <system:String x:Key="Make">Make</system:String>
+    <system:String x:Key="SelectedVehicle">Selected Vehicle</system:String>
+    <system:String x:Key="NewClient">New Client</system:String>
+    <system:String x:Key="FullName">Full Name</system:String>
+    <system:String x:Key="Phone">Phone</system:String>
+    <system:String x:Key="ReservationSummary">Reservation Summary</system:String>
+    <system:String x:Key="BackToVehicles">Back to Vehicles</system:String>
+    <system:String x:Key="ErrorLoadingCategories">Error loading categories</system:String>
+    <system:String x:Key="ErrorLoadingVehicles">Error loading vehicles</system:String>
+    <system:String x:Key="SelectVehicle">Select a vehicle</system:String>
+    <system:String x:Key="SelectClientAndOptions">Select client and options</system:String>
+    <system:String x:Key="Information">Information</system:String>
+    <system:String x:Key="ClientCreationNotImplemented">Client creation is not yet implemented</system:String>
+    <system:String x:Key="ErrorCreatingReservation">Error creating reservation</system:String>
+
+    <system:String x:Key="NoOptionsSelected">No rental options selected</system:String>
+    <system:String x:Key="NoClientSelected">No client selected</system:String>
+    <system:String x:Key="ShowPricing">Show offer</system:String>
+    <system:String x:Key="SelectVehiclePlease">Please select a vehicle</system:String>
+    <system:String x:Key="PutInAdditionalNotes">Enter additional notes [Optional]</system:String>
+
+    <system:String x:Key="RentalsManagementView">Rentals Overview</system:String>
+
+    <system:String x:Key="PriceExceedsLimit">The total rental price must be less than 10,000! Please adjust the rental so that the price is below the allowed limit.</system:String>
+
+
+</ResourceDictionary>

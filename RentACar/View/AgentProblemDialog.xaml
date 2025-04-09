@@ -1,0 +1,248 @@
+﻿<Window x:Class="RentACar.View.AgentProblemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        SizeToContent="WidthAndHeight"
+        AllowsTransparency="True"
+        Title="{DynamicResource ProblemDetails}"
+        Background="Transparent"
+        Foreground="{DynamicResource TextPrimaryBrush}">
+    <Window.Resources>
+        <Style x:Key="StyledTextBox"
+               TargetType="TextBox">
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer Margin="0"
+                                          x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ReadOnlyTextBox"
+               TargetType="TextBox"
+               BasedOn="{StaticResource StyledTextBox}">
+            <Setter Property="IsReadOnly"
+                    Value="True" />
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+        </Style>
+
+        <Style x:Key="StyledButton"
+               TargetType="Button">
+            <Setter Property="Background"
+                    Value="{DynamicResource TextSecondaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextPrimaryBrush}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Opacity"
+                                        Value="0.7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border CornerRadius="30"
+            Background="{DynamicResource BackgroundBrush}"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Grid.Row="0"
+                       x:Name="DialogTitle"
+                       Text="{DynamicResource ProblemDetails}"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20"
+                       Foreground="{DynamicResource TextSecondaryBrush}" />
+
+            <!-- Form Fields -->
+            <Grid Grid.Row="1"
+                  Width="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Creation Date Field -->
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{DynamicResource CreationDate}"
+                           VerticalAlignment="Center"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}" />
+                <TextBox Grid.Row="0"
+                         Grid.Column="1"
+                         x:Name="CreationDateTextBox"
+                         Margin="0,10"
+                         Style="{StaticResource ReadOnlyTextBox}" />
+
+                <!-- Problem Description Field -->
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="{DynamicResource ProblemDescription}"
+                           VerticalAlignment="Top"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}" />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         x:Name="ProblemDescriptionTextBox"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto"
+                         MaxLength="256"
+                         Height="100"
+                         Margin="0,10"
+                         Style="{StaticResource StyledTextBox}" />
+
+                <!-- Status Fields -->
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="{DynamicResource Status}"
+                           VerticalAlignment="Center"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}"
+                           x:Name="StatusLabel"
+                           Visibility="Collapsed" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         x:Name="StatusTextBox"
+                         Margin="0,10"
+                         Style="{StaticResource ReadOnlyTextBox}"
+                         Visibility="Collapsed" />
+
+                <!-- Admin Field -->
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="{DynamicResource Admin}"
+                           VerticalAlignment="Center"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}"
+                           x:Name="AdminLabel"
+                           Visibility="Collapsed" />
+                <TextBox Grid.Row="3"
+                         Grid.Column="1"
+                         x:Name="AdminTextBox"
+                         Margin="0,10"
+                         Style="{StaticResource ReadOnlyTextBox}"
+                         Visibility="Collapsed" />
+
+                <!-- Processing Date Field -->
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="{DynamicResource ProcessingDate}"
+                           VerticalAlignment="Center"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}"
+                           x:Name="ProcessingDateLabel"
+                           Visibility="Collapsed" />
+                <TextBox Grid.Row="4"
+                         Grid.Column="1"
+                         x:Name="ProcessingDateTextBox"
+                         Margin="0,10"
+                         Style="{StaticResource ReadOnlyTextBox}"
+                         Visibility="Collapsed" />
+
+                <!-- Feedback Field -->
+                <TextBlock Grid.Row="5"
+                           Grid.Column="0"
+                           Text="{DynamicResource Feedback}"
+                           VerticalAlignment="Top"
+                           Margin="0,10"
+                           Foreground="{DynamicResource TextSecondaryBrush}"
+                           x:Name="FeedbackLabel"
+                           Visibility="Collapsed" />
+                <TextBox Grid.Row="5"
+                         Grid.Column="1"
+                         x:Name="FeedbackTextBox"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         MaxLength="256"
+                         IsReadOnly="True"
+                         VerticalScrollBarVisibility="Auto"
+                         Height="100"
+                         Margin="0,10"
+                         Style="{StaticResource ReadOnlyTextBox}"
+                         Visibility="Collapsed" />
+            </Grid>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,20,0,0">
+                <Button Content="{DynamicResource Cancel}"
+                        Width="100"
+                        Height="35"
+                        Click="CancelButton_Click"
+                        Background="{DynamicResource BackgroundBrush}"
+                        Style="{StaticResource StyledButton}"
+                        Margin="0,0,10,0" />
+                <Button x:Name="SaveButton"
+                        Content="{DynamicResource Save}"
+                        Width="100"
+                        Height="35"
+                        Background="#007bff"
+                        Click="SaveButton_Click"
+                        Style="{StaticResource StyledButton}" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
